@@ -24,11 +24,27 @@ export function Card({
       style={[styles.container, { backgroundColor: colorCard }]}
       {...rest}
     >
-      <Text style={styles.title}>{nameCard}</Text>
+      <Text
+        style={[styles.title, nameCard === 'Green Card' && { color: 'black' }]}
+      >
+        {nameCard}
+      </Text>
       <View style={styles.content}>
-        <Text style={[styles.text]}>{cardHolder}</Text>
-        <Text style={styles.text}>{formatMaskedCardNumber(cardNumber)}</Text>
-        <Text style={styles.text}>Validade {expirationDate}</Text>
+        <Text
+          style={[styles.text, nameCard === 'Green Card' && { color: 'black' }]}
+        >
+          {cardHolder}
+        </Text>
+        <Text
+          style={[styles.text, nameCard === 'Green Card' && { color: 'black' }]}
+        >
+          {formatMaskedCardNumber(cardNumber)}
+        </Text>
+        <Text
+          style={[styles.text, nameCard === 'Green Card' && { color: 'black' }]}
+        >
+          Validade {expirationDate}
+        </Text>
       </View>
     </Pressable>
   );
