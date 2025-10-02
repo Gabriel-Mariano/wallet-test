@@ -18,6 +18,19 @@ npm start
 yarn start
 ```
 
+## Configuração do backend
+
+No arquivo `src/services/api.ts` (ou onde estiver configurado o Axios), altere a propriedade `baseURL` para o IP da sua máquina.
+
+Exemplo:
+
+```ts
+export const api = axios.create({
+  baseURL: 'http://SEU_IP_LOCAL:3000',
+  timeout: 5000,
+});
+```
+
 ## Step 2: Build and run your app
 
 With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
