@@ -16,19 +16,6 @@ npm start
 yarn start
 ```
 
-## Configuração do backend
-
-No arquivo `src/services/api.ts` (ou onde estiver configurado o Axios), altere a propriedade `baseURL` para o IP da sua máquina.
-
-Exemplo:
-
-```ts
-export const api = axios.create({
-  baseURL: 'http://SEU_IP_LOCAL:3000',
-  timeout: 5000,
-});
-```
-
 ## Etapa 2: Crie e execute seu aplicativo
 
 Com o Metro em execução, abra uma nova janela/painel de terminal na raiz do seu projeto React Native e use um dos seguintes comandos para criar e executar seu aplicativo para Android ou iOS:
@@ -69,6 +56,32 @@ npm run ios
 yarn ios
 ```
 
+## Configuração do backend
+
+No arquivo `src/services/api.ts` (ou onde estiver configurado o Axios), altere a propriedade `baseURL` para o IP da sua máquina.
+
+Exemplo:
+
+```ts
+export const api = axios.create({
+  baseURL: 'http://SEU_IP_LOCAL:3000',
+  timeout: 5000,
+});
+```
+
+## Configuração do (JSON Server)
+
+Para este projeto, usamos um **JSON Server** para simular a API. Para que a aplicação funcione corretamente, você precisa rodar o JSON Server localmente.
+
+1. Certifique-se de ter o `db.json` na raiz do projeto (ou em outro caminho que você preferir).
+
+2. No terminal, execute:
+
+```sh
+npx json-server --watch db.json --port 3000
+
+
 Se tudo estiver configurado corretamente, você verá seu novo aplicativo em execução no emulador Android, no simulador iOS ou no seu dispositivo conectado.
 
 Esta é uma maneira de executar seu aplicativo — você também pode compilá-lo diretamente do Android Studio ou do Xcode.
+```
