@@ -1,7 +1,6 @@
 import React from 'react';
-import { View } from 'react-native';
-import HomeScreen from './screens/home';
+import RouteApp from './routes/route';
 
 export default function Main() {
-  return <HomeScreen />;
+  return <RouteApp />;
 }

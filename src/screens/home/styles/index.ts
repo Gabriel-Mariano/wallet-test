@@ -18,9 +18,11 @@ export const styles = StyleSheet.create({
     gap: 20,
   },
   buttonViewCard: {
+    width: 300,
     backgroundColor: Colors.blueLight,
   },
   buttonRegisterCard: {
+    width: 300,
     backgroundColor: Colors.greenLight,
   },
 });
