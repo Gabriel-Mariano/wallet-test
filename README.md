@@ -79,9 +79,8 @@ Para este projeto, usamos um **JSON Server** para simular a API. Para que a apli
 
 ```sh
 npx json-server --watch db.json --port 3000
-
+```
 
 Se tudo estiver configurado corretamente, você verá seu novo aplicativo em execução no emulador Android, no simulador iOS ou no seu dispositivo conectado.
 
 Esta é uma maneira de executar seu aplicativo — você também pode compilá-lo diretamente do Android Studio ou do Xcode.
-```
