@@ -23,17 +23,22 @@ export const styles = StyleSheet.create({
   textHeader: {
     color: Colors.blueLight,
     fontSize: 20,
+    alignSelf: 'center',
   },
 
   stackContainer: {
     flex: 1,
+    justifyContent: 'center',
+  },
+  contentCard: {
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 100,
   },
   cardWrapper: {
     position: 'absolute',
-    width: '90%',
+    width: '100%',
+    paddingHorizontal: 20,
     alignItems: 'center',
   },
   button: {
@@ -46,15 +51,12 @@ export const styles = StyleSheet.create({
     zIndex: 3,
   },
   buttonText: {
-    color: '#FFF',
+    color: Colors.white,
     fontWeight: 'bold',
   },
-  middleButtonWrapper: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    // top: '50%', // meio da pilha
-    alignItems: 'center',
-    paddingHorizontal: 20,
+  label: {
+    color: Colors.white,
+    textAlign: 'center',
+    marginTop: 150,
   },
 });

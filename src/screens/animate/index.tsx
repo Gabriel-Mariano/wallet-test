@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { View, Animated, StyleSheet, Dimensions, Image } from 'react-native';
-import Group from '../../assets/Group.png';
 import { useNavigate } from '../../hook/useNavigate';
+import Group from '../../assets/Group.png';
 
 const { width, height } = Dimensions.get('window');
 
@@ -29,7 +29,6 @@ export default function WalletBackground() {
     const timer = setTimeout(() => navigate('ListCardScreen'), 4000);
 
     return () => {
-      // Limpa o timeout
       clearTimeout(timer);
     };
   }, []);

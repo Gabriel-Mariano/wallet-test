@@ -1,11 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import {
-  View,
-  Text,
-  Animated,
-  TouchableOpacity,
-  StyleSheet,
-} from 'react-native';
+import { View, Text, Animated } from 'react-native';
 import { Button } from '../../components/Button';
 import { Card } from '../../components/Card';
 import { getCards } from '../../services/cardService';
@@ -66,82 +60,75 @@ function ListCardScreen() {
     }
   };
 
-  if (cards.length < 2) {
+  if (cards?.length < 2 || !cards) {
     return (
-      <View style={[styles.container, { paddingTop: 100 }]}>
-        <Text style={styles.textHeader}>Adicione pelo menos 2 cartões</Text>
+      <View style={[styles.container, { padding: 20 }]}>
+        <Text style={styles.textHeader}>Nenhum dado encontrado</Text>
       </View>
     );
   }
 
-  const cardGreen = cards[0];
-  const cardBlack = cards[1];
+  const cardGreen = cards?.[0];
+  const cardBlack = cards?.[1];
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.textHeader}>Meus cartões</Text>
       </View>
-
       <View style={styles.stackContainer}>
-        {/* Cartão Verde */}
-        <Animated.View
-          style={[
-            styles.cardWrapper,
-            {
-              transform: [{ translateY: greenCardY }],
-              zIndex: topCard === 'green' ? 2 : 1,
-            },
-          ]}
-        >
-          <Card
-            cardHolder={cardGreen.name}
-            cardNumber={cardGreen.number}
-            expirationDate={cardGreen.expiration}
-            colorCard={cardGreen.colorCard}
-            nameCard={cardGreen.nameCard}
-            onPress={() => animateCards('green')}
-          />
-        </Animated.View>
-
-        {isExpanded && (
-          <View style={{ paddingHorizontal: 20, width: '100%' }}>
-            <Button
-              title="Pagar com este cartão"
-              onPress={() => console.log('Pagar com', topCard)}
-              style={{ marginTop: 140 }}
+        <View style={styles.contentCard}>
+          {/* Cartão Verde */}
+          <Animated.View
+            style={[
+              styles.cardWrapper,
+              {
+                transform: [{ translateY: greenCardY }],
+                zIndex: topCard === 'green' ? 2 : 1,
+              },
+            ]}
+          >
+            <Card
+              cardHolder={cardGreen?.name}
+              cardNumber={cardGreen?.number}
+              expirationDate={cardGreen?.expiration}
+              colorCard={cardGreen?.colorCard}
+              nameCard={cardGreen?.nameCard}
+              onPress={() => animateCards('green')}
             />
-          </View>
-        )}
+          </Animated.View>
 
-        {/* Cartão Preto */}
-        <Animated.View
-          style={[
-            styles.cardWrapper,
-            {
-              transform: [{ translateY: blackCardY }],
-              zIndex: topCard === 'black' ? 2 : 1,
-            },
-          ]}
-        >
-          <Card
-            cardHolder={cardBlack.name}
-            cardNumber={cardBlack.number}
-            expirationDate={cardBlack.expiration}
-            colorCard={cardBlack.colorCard}
-            nameCard={cardBlack.nameCard}
-            onPress={() => animateCards('black')}
-          />
-        </Animated.View>
-        {/* Botão aparece somente quando separado */}
-        {/* {isExpanded && (
-          <View style={styles.middleButtonWrapper}>
-            <Button
-              title="Pagar com este cartão"
-              onPress={() => console.log('Pagar com', topCard)}
+          {isExpanded && (
+            <View style={{ paddingHorizontal: 20, width: '100%' }}>
+              <Button
+                title="Pagar com este cartão"
+                onPress={() => console.log('Pagar com', topCard)}
+                style={{ marginTop: 140 }}
+              />
+            </View>
+          )}
+
+          {/* Cartão Preto */}
+          <Animated.View
+            style={[
+              styles.cardWrapper,
+              {
+                transform: [{ translateY: blackCardY }],
+                zIndex: topCard === 'black' ? 2 : 1,
+              },
+            ]}
+          >
+            <Card
+              cardHolder={cardBlack?.name}
+              cardNumber={cardBlack?.number}
+              expirationDate={cardBlack?.expiration}
+              colorCard={cardBlack?.colorCard}
+              nameCard={cardBlack?.nameCard}
+              onPress={() => animateCards('black')}
             />
-          </View>
-        )} */}
+          </Animated.View>
+        </View>
+        {!isExpanded && <Text style={styles.label}>user este cartão</Text>}
       </View>
     </View>
   );

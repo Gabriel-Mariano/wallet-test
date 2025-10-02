@@ -19,30 +19,20 @@ export function Card({
   colorCard,
   ...rest
 }: TCardProps) {
+  const textColorStyle = nameCard === 'Green Card' ? { color: 'black' } : {};
+
   return (
     <Pressable
       style={[styles.container, { backgroundColor: colorCard }]}
       {...rest}
     >
-      <Text
-        style={[styles.title, nameCard === 'Green Card' && { color: 'black' }]}
-      >
-        {nameCard}
-      </Text>
+      <Text style={[styles.title, textColorStyle]}>{nameCard}</Text>
       <View style={styles.content}>
-        <Text
-          style={[styles.text, nameCard === 'Green Card' && { color: 'black' }]}
-        >
-          {cardHolder}
-        </Text>
-        <Text
-          style={[styles.text, nameCard === 'Green Card' && { color: 'black' }]}
-        >
+        <Text style={[styles.text, textColorStyle]}>{cardHolder}</Text>
+        <Text style={[styles.text, textColorStyle]}>
           {formatMaskedCardNumber(cardNumber)}
         </Text>
-        <Text
-          style={[styles.text, nameCard === 'Green Card' && { color: 'black' }]}
-        >
+        <Text style={[styles.text, textColorStyle]}>
           Validade {expirationDate}
         </Text>
       </View>
