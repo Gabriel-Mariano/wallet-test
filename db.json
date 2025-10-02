@@ -7,42 +7,6 @@
       "name": "John Doe",
       "nameCard": "Green Card",
       "colorCard": "#A5FF32"
-    },
-    {
-      "id": "e985",
-      "number": "2019 2019 3029 3109",
-      "cvv": "234",
-      "name": "Gabriel Mariano",
-      "expiration": "10/12",
-      "nameCard": "Black Card",
-      "colorCard": "#000"
-    },
-    {
-      "id": "fc9d",
-      "number": "2131 2312 3232 3232",
-      "cvv": "234",
-      "name": "teste",
-      "expiration": "12/12",
-      "nameCard": "Black Card",
-      "colorCard": "#000"
-    },
-    {
-      "id": "7cca",
-      "number": "3424 2342 3424 2342",
-      "cvv": "123",
-      "name": "Teste Gabriel",
-      "expiration": "11/29",
-      "nameCard": "Black Card",
-      "colorCard": "#000"
-    },
-    {
-      "id": "deb3",
-      "number": "1123 1313 1312 3123",
-      "cvv": "232",
-      "name": "TEste",
-      "expiration": "11/12",
-      "nameCard": "Black Card",
-      "colorCard": "#000"
     }
   ]
 }
