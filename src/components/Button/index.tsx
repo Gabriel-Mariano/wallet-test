@@ -25,6 +25,7 @@ export function Button({
     <TouchableOpacity
       {...rest}
       style={[styles.container, { backgroundColor }, rest.style]}
+      testID="ButtonTouchable"
     >
       {isLoading ? (
         <ActivityIndicator size="small" />

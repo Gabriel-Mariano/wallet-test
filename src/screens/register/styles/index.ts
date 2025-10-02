@@ -11,9 +11,13 @@ export const styles = StyleSheet.create({
     gap: 10,
   },
   title: {
-    color: '#FFFFFF',
+    color: Colors.white,
     fontSize: 28,
     lineHeight: 32,
+  },
+  text: {
+    color: Colors.white,
+    fontSize: 18,
   },
   row: {
     flexDirection: 'row',

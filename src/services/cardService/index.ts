@@ -6,6 +6,8 @@ export type CardPayload = {
   cvv: string;
   expiration: string;
   name: string;
+  nameCard: string;
+  colorCard: string;
 };
 
 export const createCard = async (data: CardPayload) => {

@@ -18,6 +18,7 @@ import { creditCardSchema } from './schema/creditCardSchema';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { styles } from './styles';
+import { useNavigate } from '../../hook/useNavigate';
 
 type FormRegisterValues = {
   cardNumber: string;
@@ -37,6 +38,8 @@ function RegisterScreen() {
   const [userCard, setUserCard] = useState<CardPayload | null>(null); //prettier-ignore
   const [loading, setLoading] = useState(false);
 
+  const { navigate } = useNavigate();
+
   const {
     control,
     handleSubmit,
@@ -54,6 +57,8 @@ function RegisterScreen() {
       cvv: data.securityCode,
       name: data.cardHolder,
       expiration: data.expirationDate,
+      nameCard: 'Black Card',
+      colorCard: '#000',
     };
 
     setLoading(true);
@@ -66,14 +71,18 @@ function RegisterScreen() {
   if (userCard) {
     return (
       <View style={styles.container}>
+        <Text style={styles.title}>Wallet Test</Text>
+        <Text style={styles.text}>Cartão cadastrado com sucesso</Text>
         <Card
           cardHolder={userCard.name}
           cardNumber={userCard.number}
           expirationDate={userCard.expiration}
+          nameCard={userCard.nameCard}
+          colorCard={userCard.colorCard}
         />
         <Button
           title="avançar"
-          onPress={handleSubmit(onSubmit)}
+          onPress={() => navigate('WalletBackground')}
           style={styles.nextButton}
         />
       </View>
