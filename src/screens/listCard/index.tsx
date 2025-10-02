@@ -60,7 +60,7 @@ function ListCardScreen() {
     }
   };
 
-  if (cards?.length < 2 || !cards) {
+  if (!cards || cards.length === 0) {
     return (
       <View style={[styles.container, { padding: 20 }]}>
         <Text style={styles.textHeader}>Nenhum dado encontrado</Text>
@@ -68,8 +68,23 @@ function ListCardScreen() {
     );
   }
 
-  const cardGreen = cards?.[0];
-  const cardBlack = cards?.[1];
+  const cardGreen = cards[0];
+  const cardBlack = cards[1];
+
+  if (cards.length === 1) {
+    return (
+      <View style={[styles.container, { padding: 20 }]}>
+        <Card
+          cardHolder={cardGreen?.name ?? ''}
+          cardNumber={cardGreen?.number ?? ''}
+          expirationDate={cardGreen?.expiration ?? ''}
+          colorCard={cardGreen?.colorCard}
+          nameCard={cardGreen?.nameCard}
+          onPress={() => animateCards('green')}
+        />
+      </View>
+    );
+  }
 
   return (
     <View style={styles.container}>
