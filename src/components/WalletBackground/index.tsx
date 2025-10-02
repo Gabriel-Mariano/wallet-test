@@ -1,21 +1,18 @@
 import React, { ReactNode } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, ViewProps } from 'react-native';
 import { Colors } from '../../themes/colors';
 
-type Props = {
+type Props = ViewProps & {
   children: ReactNode;
 };
 
-export function WalletBackgroundLayout({ children }: Props) {
+export function WalletBackgroundLayout({ children, ...rest }: Props) {
   return (
-    <View style={styles.container}>
-      {/* Quadrado esquerdo */}
+    <View style={[styles.container, rest.style]}>
       <View style={[styles.square, styles.squareLeft]} />
 
-      {/* Quadrado direito */}
       <View style={[styles.square, styles.squareRight]} />
 
-      {/* Conteúdo da tela */}
       <View style={styles.content}>{children}</View>
     </View>
   );
@@ -27,6 +24,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.primary,
     justifyContent: 'center',
     alignItems: 'center',
+    gap: 10,
   },
   square: {
     position: 'absolute',
@@ -49,6 +47,7 @@ const styles = StyleSheet.create({
   content: {
     flex: 1,
     width: '100%',
+    gap: 5,
     justifyContent: 'center',
     alignItems: 'center',
   },

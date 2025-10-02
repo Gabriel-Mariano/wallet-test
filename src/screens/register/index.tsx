@@ -19,6 +19,7 @@ import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { styles } from './styles';
 import { useNavigate } from '../../hook/useNavigate';
+import { WalletBackgroundLayout } from '../../components/WalletBackground';
 
 type FormRegisterValues = {
   cardNumber: string;
@@ -70,7 +71,7 @@ function RegisterScreen() {
 
   if (userCard) {
     return (
-      <View style={styles.container}>
+      <WalletBackgroundLayout style={styles.container}>
         <Text style={styles.title}>Wallet Test</Text>
         <Text style={styles.text}>Cartão cadastrado com sucesso</Text>
         <Card
@@ -85,18 +86,18 @@ function RegisterScreen() {
           onPress={() => navigate('WalletBackground')}
           style={styles.nextButton}
         />
-      </View>
+      </WalletBackgroundLayout>
     );
   }
 
   return (
     <KeyboardAvoidingView
       style={{ flex: 1 }}
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
       keyboardVerticalOffset={Platform.OS === 'ios' ? 60 : 0}
     >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <View style={styles.container}>
+        <WalletBackgroundLayout style={styles.container}>
           <Text style={styles.title}>Wallet Test</Text>
           <Controller
             control={control}
@@ -173,7 +174,7 @@ function RegisterScreen() {
             titleColor={!isValid ? '#c1c1c1' : Colors.white}
             disabled={!isValid}
           />
-        </View>
+        </WalletBackgroundLayout>
       </TouchableWithoutFeedback>
     </KeyboardAvoidingView>
   );

@@ -64,9 +64,7 @@ export default function RouteApp() {
           component={RegisterScreen}
           options={{
             title: 'Cadastro',
-            headerStyle: {
-              backgroundColor: Colors.primary,
-            },
+            headerTransparent: true,
             headerTintColor: Colors.blueLight,
             headerShadowVisible: false,
             headerTitleAlign: 'center',
